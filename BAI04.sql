@@ -90,12 +90,3 @@ SELECT *
 FROM `Pharmacy_Inventory`
 WHERE `Drug_Name` LIKE 'Para%';
 
--- Cách 2: FULLTEXT SEARCH (xịn hơn, nhưng setup thêm)
-ALTER TABLE `Pharmacy_Inventory` 
-ADD FULLTEXT(`Drug_Name`);
-
-SELECT *
-FROM `Pharmacy_Inventory`
-WHERE MATCH(`Drug_Name`) AGAINST('Para');
--- tìm kiếm gần giống Google
--- không bị bóp cổ như %keyword%
